@@ -81,6 +81,7 @@ public class SingleLL_scratch {
         }
     }
     
+    //Function to delete first Node
     public Integer deleteFirst(){
         if(head==null){
             System.out.println("Nothing to delete");
@@ -93,6 +94,7 @@ public class SingleLL_scratch {
         return temp;
     } 
     
+    //Function to delete Last Node
     public Integer deleteLast(){
         int del;
         if(head==null){
@@ -118,6 +120,7 @@ public class SingleLL_scratch {
         return del;
     }
     
+    //Function to delete Node at Index
     public Integer deleteIndex(int pos){
         Integer del;
         if(head==null){
@@ -141,48 +144,32 @@ public class SingleLL_scratch {
         }
     }
     
+    //reverse a linked list
+    public void reverse(){
+        if(head==null || head.next==null){
+            return;
+        }
+        Node prev=null;
+        Node curr=head;
+        Node next=null;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
     
     public static void main(String[] args) {
         System.out.println("Single Linked List From Scratch");
 
         SingleLL_scratch list=new SingleLL_scratch();
-        list.getSize();
-        list.printList();
         list.addFirst(10);
-        list.getSize();
-        list.printList();
         list.addFirst(20);
         list.addFirst(30);
-        list.getSize();
         list.printList();
-        list.addLast(50);
-        list.addLast(55);
-        list.getSize();
+        list.reverse();
         list.printList();
-        list.addIndex(5,1 );
-        list.printList();
-        list.addIndex(60, 5);
-        list.printList();
-        list.addIndex(70, 3);
-        list.printList();
-        list.getSize();
-        list.deleteFirst();
-        list.printList();
-        list.getSize();
-        list.deleteLast();
-        list.printList();
-        list.getSize();
-        list.deleteIndex(1);
-        list.printList();
-        list.getSize();
-        list.deleteIndex(10);
-        list.printList();
-        list.getSize();
-        list.deleteIndex(5);
-        list.printList();
-        list.getSize();
-        list.deleteIndex(2);
-        list.printList();
-        list.getSize();
     }
 }
